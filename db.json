@@ -1,0 +1,64 @@
+{
+  "posts": [
+    {
+      "id": 14,
+      "name": "Nitin Sonawane",
+      "email": "nitin@gmail.com",
+      "country": "India",
+      "dob": "1997-06-13",
+      "avatar": "https://www.w3schools.com/w3images/avatar2.png"
+    },
+    {
+      "id": 15,
+      "name": "Tejas Sadaphal",
+      "email": "tejas@gmail.com",
+      "country": "India",
+      "dob": "1992-05-25",
+      "avatar": "https://www.w3schools.com/w3images/avatar2.png"
+    },
+    {
+      "id": 16,
+      "name": "Sanket Zambare",
+      "email": "sanket@gmail.com",
+      "country": "India",
+      "dob": "1996-03-25",
+      "avatar": "https://www.w3schools.com/w3images/avatar2.png"
+    },
+    {
+      "id": 19,
+      "name": "Prakash Mhaske",
+      "email": "prakash@gmail.com",
+      "country": "India",
+      "dob": "1997-04-03",
+      "avatar": "https://www.w3schools.com/w3images/avatar2.png"
+    },
+    {
+      "id": 20,
+      "name": "Abhijeet Joshi",
+      "email": "abhijeet@gmail.com",
+      "country": "India",
+      "dob": "1996-02-05",
+      "avatar": "https://png.pngitem.com/pimgs/s/78-786293_1240-x-1240-0-avatar-profile-icon-png.png"
+    },
+    {
+      "id": 21,
+      "name": "Prakash Mhaske",
+      "email": "praksh@gmail.com",
+      "country": "India",
+      "dob": "1999-02-05",
+      "avatar": "https://www.w3schools.com/w3images/avatar2.png"
+    },
+    {
+      "id": 22,
+      "name": "Siddharth Vaidya",
+      "email": "sid@gmail.com",
+      "country": "India",
+      "dob": "1997-05-03",
+      "avatar": "https://www.w3schools.com/w3images/avatar2.png"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

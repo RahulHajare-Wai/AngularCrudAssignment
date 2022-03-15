@@ -1,0 +1,116 @@
+<div class="navbar navbar-light bg-nav sticky-top">
+  <div class="container-fluid">
+    <h4 class="text-light" data-bs-toggle="modal" data-bs-target="#exampleModal"> Person Details</h4>
+    <div class="d-flex">
+      <button class="btn btn-light pull-right" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="text-danger h6">Add Person</span></button>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid ">
+  <div class="row row-cols-xxl-4 row-cols-xl-3 row-cols-md-2 row-cols-lg-3 row-cols-sm-2 row-cols-xs-1">
+
+
+    <div class="col" *ngFor="let row of personData" class="mt-4">
+      <div class="card m-1 shadow-look border-look bg-head animation" >
+        <div class="card-body mt-5">
+          <div class="card border-look bg-transparent border-0" >
+            <img [src]="row.avatar" alt="" style="height: 150px; width: 120px;" class="border-look mx-auto shadow-md">
+          </div>
+          <!-- Person Details  -->
+          <div class="card-body py-2">
+            <label for="" class="text-dark h6">Name : <span>{{row.name}}</span></label><br>
+            <label for="" class="text-dark h6">Email : <span>{{row.email}}</span></label> <br>
+            <label for="" class="text-dark h6">Country : <span>{{row.country}}</span></label><br>
+            <label for="" class="text-dark h6">Age : <span>{{row.dob|ageCount}}</span></label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onEdit(row)"><i class="bi bi-pencil-square h4" ></i></button>
+          <button class="btn btn-sm btn-danger" (click)="showMessage(row.id)"><i class="bi bi-trash h4"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- modal  -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Employee Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- form-control added here for employee btn-info  -->
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Customer Name</label>
+            <input type="text" class="form-control" formControlName="name">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email Id</label>
+            <input type="email" class="form-control" id="empEmailAddress" formControlName="email" #Email (keyup)="validateEmail(Email.value)">
+            <div class="alert-danger mt-1" *ngIf="!resultEmail">{{message}}</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Country</label>
+            <select name="country" id="country" class="form-control" formControlName="country">
+              <option value="India">India</option>
+              <option value="America">America</option>
+              <option value="Japan">Japan</option>
+              <option value="Germany">Germeny</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="Salary" class="form-label">Date Of Birth</label>
+            <input type="date" class="form-control" id="" formControlName="dob">
+          </div>
+          <div class="mb-3">
+            <label for="Salary" class="form-label">Select Image</label>
+            <div class="dropdown">
+              <input type="text" class="form-control" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" placeholder="Select the image" aria-expanded="false"  formControlName="avatar">
+              <ul class="dropdown-menu form-control" aria-labelledby="dropdownMenuButton1">
+                <li (click)="avatar1()"><div><img src="https://png.pngitem.com/pimgs/s/78-786293_1240-x-1240-0-avatar-profile-icon-png.png"  alt="" style="height: 25px; width: 25px;" class="m-2"> <span class="h6 text-muted">Avatar 1</span></div></li>
+                <li (click)="avatar2()"><div><img src="https://www.w3schools.com/w3images/avatar2.png "  alt="" style="height: 25px; width: 25px;" class="m-2"><span class="h6 text-muted" >Avatar 2</span></div></li>
+                <li (click)="avatar3()"><div><img src="https://www.w3schools.com/howto/img_avatar2.png"  alt="" style="height: 25px; width: 25px;" class="m-2"><span class="h6 text-muted">Avatar 3</span></div></li>
+                <li (click)="avatar4()"><div><img src="https://www.w3schools.com/w3images/avatar6.png"  alt="" style="height: 25px; width: 25px;" class="m-2"><span class="h6 text-muted">Avatar 4</span></div></li>
+              </ul>
+            </div>
+
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="operateData()">{{isUpdateMode}}</button>
+        <button type="button" id="cancel" class="btn btn-danger" data-bs-dismiss="modal" (click)="resetData()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-xxl-3 col-sm-8 col-xs-12 col-md-8 col-xl-3 msgBox sticky-top" *ngIf="display==='show'">
+  <div class="card shadow ">
+    <div class="card-body">
+      <label for="" class="h5">Are you sure to delete this record..?</label>
+    </div>
+    <div class="modal-footer border-0">
+      <button class="btn btn-sm btn-success px-3" (click)="deletePerson()">
+        YES
+      </button>
+      <button class="btn btn-sm btn-dark px-3" (click)="fetchData()">
+        No
+      </button>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,30 @@
+.headbg{
+  background-color: rgb(240, 255, 243);
+}
+
+.border-look{
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background-color: rgb(232, 238, 208);
+}
+
+.shadow-look{
+  box-shadow: 5px 5px 20px 0 rgb(127, 209, 178);
+}
+
+.bg-nav{
+  background-color: rgb(84, 155, 96);
+}
+
+.animation:hover{
+  background-color: #fff;
+  cursor: pointer;
+  box-shadow: 5px 5px 20px 0 rgb(209, 144, 127);
+}
+
+.msgBox{
+  position: fixed;
+  z-index:1;
+  top: 8%;
+  right: 0;
+}
